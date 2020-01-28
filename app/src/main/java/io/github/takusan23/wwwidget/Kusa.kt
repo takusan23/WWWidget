@@ -72,24 +72,31 @@ class Kusa {
 
         for (i in 0 until colorList.size) {
 
-            // 描画
-            val paint = Paint()
-            paint.color = Color.parseColor(colorList[i])
-            canvas.drawRect(left, top, right, bottom, paint)
-            // println("$left /  $top / $right / $bottom")
-            // Canvasに書いたら下に移動
-            // 高さ。第二引数と第四引数
-            top += squareSize
-            bottom += squareSize
+            if (true) {
 
-            // もし最後までかけたら
-            // 次の列？
-            if (i % 7 == 0 && i != 0) {
-                left = right
-                right += squareSize
-                // 高さ初期化
-                top = 0f
-                bottom = squareSize
+                // println(colorList[i])
+
+                // 次の列へ
+                if (i % 7 == 0 && i != 0) {
+                    left = right
+                    right += squareSize
+                    // 高さ初期化
+                    top = 0f
+                    bottom = squareSize
+                }
+
+                // 描画
+                val paint = Paint()
+                paint.color = Color.parseColor(colorList[i])
+                canvas.drawRect(left, top, right, bottom, paint)
+                // println("$left /  $top / $right / $bottom")
+
+                // Canvasに書いたら下に移動
+                // 高さ。第二引数と第四引数
+                top += squareSize
+                bottom += squareSize
+
+
             }
 
         }

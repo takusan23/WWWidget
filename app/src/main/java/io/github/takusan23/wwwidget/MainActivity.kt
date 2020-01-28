@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         // 時代の流れに乗ってコルーチン使ってみる
         val contribute = kusa.getGitHubContribute(userName).await()
         val colorList = kusa.parseContributeResponse(contribute)
-        //println(colorList)
+        // println(colorList)
         val grass = kusa.createGrassCanvas(colorList)
         imageview.setImageBitmap(grass)
     }
