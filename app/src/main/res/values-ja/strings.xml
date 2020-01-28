@@ -3,4 +3,6 @@
     <string name="app_name">WWWidget</string>
     <string name="get_kusa">コントリビューション（草）取得</string>
     <string name="user_name">ユーザーネーム</string>
+    <string name="user_name_not_fount">ユーザーネームが保存されていません。</string>
+    <string name="update">更新します</string>
 </resources>

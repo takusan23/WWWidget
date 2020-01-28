@@ -76,7 +76,7 @@ class Kusa {
             val paint = Paint()
             paint.color = Color.parseColor(colorList[i])
             canvas.drawRect(left, top, right, bottom, paint)
-            println("$left /  $top / $right / $bottom")
+            // println("$left /  $top / $right / $bottom")
             // Canvasに書いたら下に移動
             // 高さ。第二引数と第四引数
             top += squareSize
