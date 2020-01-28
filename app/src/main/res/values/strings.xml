@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WWWidget</string>
+    <string name="get_kusa">Contribution (grass) acquisition</string>
+    <string name="user_name">User name</string>
 </resources>

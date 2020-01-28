@@ -35,16 +35,17 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/user_name_edittext"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/user_name" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/load_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
-            android:text="Button" />
+            android:text="@string/get_kusa" />
     </LinearLayout>
 
 </LinearLayout>

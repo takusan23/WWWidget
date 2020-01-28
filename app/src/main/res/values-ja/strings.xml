@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WWWidget</string>
+    <string name="get_kusa">コントリビューション（草）取得</string>
+    <string name="user_name">ユーザーネーム</string>
+</resources>
