@@ -5,4 +5,6 @@
     <string name="user_name">ユーザーネーム</string>
     <string name="user_name_not_fount">ユーザーネームが保存されていません。</string>
     <string name="update">更新します</string>
+    <string name="save_img">画像として保存</string>
+    <string name="license">ライセンス</string>
 </resources>

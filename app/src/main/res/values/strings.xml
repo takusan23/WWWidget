@@ -6,4 +6,6 @@
     <string name="add_widget">Add widget</string>
     <string name="user_name_not_fount">Your username has not been saved.</string>
     <string name="update">Update</string>
+    <string name="save_img">Save as image</string>
+    <string name="license">License</string>
 </resources>

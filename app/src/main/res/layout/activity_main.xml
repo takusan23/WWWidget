@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:layout_margin="10sp"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -34,8 +34,8 @@
             android:layout_margin="10sp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
                 android:id="@+id/user_name_edittext"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/user_name" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -44,8 +44,22 @@
             android:id="@+id/load_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10sp"
+            android:layout_margin="5sp"
             android:text="@string/get_kusa" />
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="@string/save_img" />
+
+        <Button
+            android:id="@+id/license_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="@string/license" />
     </LinearLayout>
 
 </LinearLayout>
