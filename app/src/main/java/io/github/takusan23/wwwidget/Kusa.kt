@@ -17,7 +17,7 @@ class Kusa {
      * */
     private val colorNameList = mutableMapOf(
         "var(--color-calendar-graph-day-bg)" to "#ebedf0",
-        "var(--color-calendar-graph-day-L1-bg)" to "#40c463",
+        "var(--color-calendar-graph-day-L1-bg)" to "#9be9a8",
         "var(--color-calendar-graph-day-L2-bg)" to "#40c463",
         "var(--color-calendar-graph-day-L3-bg)" to "#30a14e",
         "var(--color-calendar-graph-day-L4-bg)" to "#216e39"
@@ -65,12 +65,12 @@ class Kusa {
     }
 
     fun createGrassCanvas(colorList: ArrayList<String>): Bitmap {
-        // Canvas生成
-        val bitmap = Bitmap.createBitmap(1696, 224, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(bitmap)
-
         // 辺の長さ？
         val squareSize = 30f
+
+        // Canvas生成
+        val bitmap = Bitmap.createBitmap(((squareSize + 2) * 52).toInt(), ((squareSize + 2) * 7).toInt(), Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(bitmap)
 
         // 左上のX座標
         var left = 0f
