@@ -13,6 +13,17 @@ import org.jsoup.Jsoup
 class Kusa {
 
     /**
+     * CSS var() から カラーコード対応表
+     * */
+    private val colorNameList = mutableMapOf(
+        "var(--color-calendar-graph-day-bg)" to "#ebedf0",
+        "var(--color-calendar-graph-day-L1-bg)" to "#40c463",
+        "var(--color-calendar-graph-day-L2-bg)" to "#40c463",
+        "var(--color-calendar-graph-day-L3-bg)" to "#30a14e",
+        "var(--color-calendar-graph-day-L4-bg)" to "#216e39"
+    )
+
+    /**
      * GitHubの草を取得する
      * @param userName GitHubでの名前。
      * @return API叩いた結果。失敗したら空文字です
@@ -48,7 +59,7 @@ class Kusa {
         for (i in 0 until rectList.size) {
             // カラーコードがある属性取得
             val color = rectList[i].attr("fill")
-            arrayList.add(color)
+            arrayList.add(colorNameList[color] ?: "#ffffff")
         }
         return arrayList
     }
@@ -59,7 +70,7 @@ class Kusa {
         val canvas = Canvas(bitmap)
 
         // 辺の長さ？
-        val squareSize = 32f
+        val squareSize = 30f
 
         // 左上のX座標
         var left = 0f
@@ -78,7 +89,7 @@ class Kusa {
 
                 // 次の列へ
                 if (i % 7 == 0 && i != 0) {
-                    left = right
+                    left = right + 2
                     right += squareSize
                     // 高さ初期化
                     top = 0f
@@ -88,13 +99,12 @@ class Kusa {
                 // 描画
                 val paint = Paint()
                 paint.color = Color.parseColor(colorList[i])
-                canvas.drawRect(left, top, right, bottom, paint)
-                // println("$left /  $top / $right / $bottom")
+                canvas.drawRoundRect(left, top, right, bottom, 0f, 0f, paint)
 
                 // Canvasに書いたら下に移動
                 // 高さ。第二引数と第四引数
-                top += squareSize
-                bottom += squareSize
+                top += squareSize + 2
+                bottom += squareSize + 2
 
 
             }

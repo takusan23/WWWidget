@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Looper
 import android.widget.RemoteViews
 import android.widget.Toast
 import androidx.preference.PreferenceManager
@@ -13,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import java.util.logging.Handler
 
 /**
  * Implementation of App Widget functionality.
@@ -69,20 +71,21 @@ internal fun updateAppWidget(
             val contribute = kusa.getGitHubContribute(userName).await()
             val colorList = kusa.parseContributeResponse(contribute)
             val grass = kusa.createGrassCanvas(colorList)
-            // Construct the RemoteViews object
-            // ウィジェットのレイアウト読み込み
-            val views = RemoteViews(context.packageName, R.layout.kusa_widget)
-            // Bitmapセット
-            views.setImageViewBitmap(R.id.widget_imageview, grass)
-            // ユーザーネームセット
-            views.setTextViewText(R.id.widget_username_textview, userName)
-            // 押したとき
-            val intent = Intent(context, KusaWidget::class.java)
-            val pendingIntent =
-                PendingIntent.getBroadcast(context, 25, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-            views.setOnClickPendingIntent(R.id.widget_load_button, pendingIntent)
-            // ウィジェット更新
-            appWidgetManager.updateAppWidget(appWidgetId, views)
+            android.os.Handler(Looper.getMainLooper()).post {
+                // ウィジェットのレイアウト読み込み
+                val views = RemoteViews(context.packageName, R.layout.kusa_widget)
+                // Bitmapセット
+                views.setImageViewBitmap(R.id.widget_imageview, grass)
+                // ユーザーネームセット
+                views.setTextViewText(R.id.widget_username_textview, userName)
+                // 押したとき
+                val intent = Intent(context, KusaWidget::class.java)
+                val pendingIntent =
+                    PendingIntent.getBroadcast(context, 25, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+                views.setOnClickPendingIntent(R.id.widget_load_button, pendingIntent)
+                // ウィジェット更新
+                appWidgetManager.updateAppWidget(appWidgetId, views)
+            }
         }
     } else {
         Toast.makeText(context, R.string.user_name_not_fount, Toast.LENGTH_SHORT).show()
